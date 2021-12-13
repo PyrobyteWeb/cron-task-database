@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Migrations;
+namespace PyrobyteWeb\CronTaskDatabase\Database\Migrations;
 
 use Closure;
 use Illuminate\Filesystem\Filesystem;

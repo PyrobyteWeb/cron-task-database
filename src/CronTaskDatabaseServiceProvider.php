@@ -1,11 +1,11 @@
 <?php
 
-namespace PyrobyteWeb\CronTasksDatabase;
+namespace PyrobyteWeb\CronTaskDatabase;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Database\Migrations\CronTaskCreator;
+use PyrobyteWeb\CronTaskDatabase\Database\Migrations\CronTaskCreator;
 use Illuminate\Support\ServiceProvider;
-use PyrobyteWeb\CronTasksDatabase\Console\CronTaskAddCommand;
+use PyrobyteWeb\CronTaskDatabase\Console\CronTaskAddCommand;
 
 class CronTaskDatabaseServiceProvider extends ServiceProvider implements DeferrableProvider
 {

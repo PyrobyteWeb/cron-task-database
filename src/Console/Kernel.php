@@ -1,11 +1,12 @@
 <?php
 
-namespace PyrobyteWeb\CronTasksDatabase\Console;
+namespace PyrobyteWeb\CronTaskDatabase\Console;
+
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use PyrobyteWeb\CronTasksDatabase\CronTask;
+use PyrobyteWeb\CronTaskDatabase\CronTask;
 
 class Kernel extends ConsoleKernel
 {

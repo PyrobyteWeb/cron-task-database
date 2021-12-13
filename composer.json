@@ -1,8 +1,8 @@
 {
-    "name": "pyrobyteweb/crontassks-database",
+    "name": "pyrobyteweb/cron-task-database",
     "autoload": {
         "psr-4": {
-            "Pyrobyteweb\\CronTasksDatabase\\": "src/"
+            "Pyrobyteweb\\CronTaskDatabase\\": "src/"
         }
     },
     "authors": [

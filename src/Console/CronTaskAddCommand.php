@@ -1,10 +1,10 @@
 <?php
 
-namespace PyrobyteWeb\CronTasksDatabase\Console;
+namespace PyrobyteWeb\CronTaskDatabase\Console;
 
 use Illuminate\Database\Console\Migrations\BaseCommand;
 use Illuminate\Database\Console\Migrations\TableGuesser;
-use Illuminate\Database\Migrations\CronTaskCreator;
+use PyrobyteWeb\CronTaskDatabase\Database\Migrations\CronTaskCreator;
 use Illuminate\Support\Composer;
 use Illuminate\Support\Str;
 
