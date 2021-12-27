@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class CronTask
  * @property $id
  * @property $name
- * @property $code
+ * @property $namespace
  * @property $status
  * @property $sort
  * @property $run_period
@@ -25,16 +25,35 @@ class CronTask extends Model
     const STATUS_ACTIVE = 1;
     const STATUS_DISABLED = 0;
 
+    const INTERVAL_EVERY_MINUTE = 'everyMinute';
+    const INTERVAL_EVERY_TWO_MINUTES = 'everyTwoMinutes';
+    const INTERVAL_EVERY_THREE_MINUTES = 'everyThreeMinutes';
+    const INTERVAL_EVERY_FOUR_MINUTES = 'everyFourMinutes';
+    const INTERVAL_EVERY_FIVE_MINUTES = 'everyFiveMinutes';
+    const INTERVAL_EVERY_TEN_MINUTES = 'everyTenMinutes';
+    const INTERVAL_EVERY_FIFTEEN_MINUTES = 'everyFifteenMinutes';
+    const INTERVAL_EVERY_THIRTY_MINUTES = 'everyThirtyMinutes';
+    const INTERVAL_HOURLY = 'hourly';
+    const INTERVAL_HOURLY_AT = 'hourlyAt';
+    const INTERVAL_EVERY_TWO_HOURS = 'everyTwoHours';
+    const INTERVAL_EVERY_THREE_HOURS = 'everyThreeHours';
+    const INTERVAL_EVERY_FOUR_HOURS = 'everyFourHours';
+    const INTERVAL_EVERY_SIX_HOURS = 'everySixHours';
+    const INTERVAL_DAILY = 'daily';
+    const INTERVAL_WEEKLY = 'weekly';
+    const INTERVAL_MONTHLY = 'monthly';
+    const INTERVAL_QUARTERLY = 'quarterly';
+    const INTERVAL_YEARLY = 'yearly';
+
     /**
      * Получает опции периода для крон-задачи
      * @return array|null
      */
     public function getPeriodOptions():? array
     {
-        $code = $this->getCode();
-        $options = [];
+        $namespace = $this->getNamespace();
 
-        switch ($code) {
+        switch ($namespace) {
             default:
                 $options = [];
         }
@@ -61,9 +80,9 @@ class CronTask extends Model
     /**
      * @return mixed
      */
-    public function getCode()
+    public function getNamespace()
     {
-        return $this->code;
+        return $this->namespace;
     }
 
     /**

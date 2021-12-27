@@ -16,7 +16,7 @@ class CreateCronTasksTable extends Migration
         Schema::create('cron_tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('code');
+            $table->string('namespace');
             $table->boolean('status')->default(0);
             $table->string('run_period');
             $table->string('description')->nullable();

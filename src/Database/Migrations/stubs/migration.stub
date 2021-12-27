@@ -10,7 +10,7 @@ class {{ class }} extends Migration
     private $tasks = [
         [
             'name' => '',
-            'code' => '',
+            'namespace' => '',
             'status' => 1,
             'run_period' => 'everyMinute',
         ],
@@ -25,8 +25,8 @@ class {{ class }} extends Migration
     {
          foreach ($this->tasks as $task) {
             DB::table('cron_tasks')->insert(array_merge($task, [
-                'created_at' => $now,
-                'updated_at' => $now,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]));
         }
     }
@@ -40,7 +40,7 @@ class {{ class }} extends Migration
     {
         foreach ($this->tasks as $task) {
             \Illuminate\Support\Facades\DB::table('cron_tasks')
-                ->where('code', $task['code'])
+                ->where('namespace', $task['namespace'])
                 ->delete();
         }
     }

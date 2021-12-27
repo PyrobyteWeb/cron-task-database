@@ -2,12 +2,11 @@
 
 namespace PyrobyteWeb\CronTaskDatabase;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
 use PyrobyteWeb\CronTaskDatabase\Database\Migrations\CronTaskCreator;
 use Illuminate\Support\ServiceProvider;
 use PyrobyteWeb\CronTaskDatabase\Console\CronTaskAddCommand;
 
-class CronTaskDatabaseServiceProvider extends ServiceProvider implements DeferrableProvider
+class CronTaskDatabaseServiceProvider extends ServiceProvider
 {
     protected array $commands = [
         'CronTaskAdd' => 'command.cron-task.add',
@@ -33,7 +32,10 @@ class CronTaskDatabaseServiceProvider extends ServiceProvider implements Deferra
             return new CronTaskCreator($app['files'], $app->basePath('stubs'));
         });
 
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
+        $this->publishes([
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
+        ], 'crontasks-migrations');
+
         $this->registerCronTaskAddCommand();
         $this->registerCommands($this->commands);
     }

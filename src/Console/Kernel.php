@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    protected function schedule(Schedule $schedule)
+    public static function scheduler(Schedule $schedule)
     {
         if (self::isRunning()) {
             Log::info('Artisan schedule is still running');
